@@ -1,0 +1,25 @@
+@startuml
+skinparam defaultTextAlignment center
+
+start
+:User opens Colors Web App;
+:User enters credentials on Login page;
+if (Credentials valid?) then (yes)
+  :Redirect to Color Dashboard/Main Page;
+  fork
+    :User searches for a color;
+    :Call SearchColors.php API;
+    :Display search results;
+  fork again
+    :User adds a new color;
+    :Call AddColor.php API;
+    :Save color to database;
+    :Update UI;
+  end fork
+else (no)
+  :Show login error message;
+  stop
+endif
+
+stop
+@enduml

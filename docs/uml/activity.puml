@@ -1,0 +1,51 @@
+@startuml
+skinparam defaultTextAlignment center
+
+start
+
+:User opens Colors Web App;
+:User enters credentials on Login page;
+:Call Login.php API;
+
+if (Credentials valid?) then (yes)
+
+  :Save login cookie;
+  :Redirect to Color Dashboard/Main Page;
+  :Read and validate cookie;
+
+  if (Valid session?) then (yes)
+
+    repeat
+      :User selects an operation;
+
+      if (Add Color?) then (yes)
+        :User enters a color;
+        :Call AddColor.php API;
+        :Save color to database;
+        :Display add result;
+
+      else (no)
+        if (Search Colors?) then (yes)
+          :User enters search text;
+          :Call SearchColors.php API;
+          :Retrieve matching colors;
+          :Display search results;
+        else (Logout)
+          :Clear login cookie;
+        endif
+      endif
+
+    repeat while (Continue using application?) is (yes)
+
+  endif
+
+  :Redirect to Login page;
+
+else (no)
+
+  :Display login error message;
+
+endif
+
+stop
+@enduml
