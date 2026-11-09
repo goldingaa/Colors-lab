@@ -1,0 +1,34 @@
+{
+  "name": "colors-lab",
+  "version": "1.0.0",
+  "description": "Colors is a basic web application developed with the LAMP stack. It allows users to log in, create a collection of colors, and search for colors that users have saved.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "lint:html": "htmlhint \"**/*.html\"",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:js": "eslint \"**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goldingaa/Colors-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/goldingaa/Colors-lab/issues"
+  },
+  "homepage": "https://github.com/goldingaa/Colors-lab#readme",
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "htmlhint": "^1.9.2",
+    "stylelint": "^18.0.0",
+    "stylelint-config-standard": "^41.0.0"
+  }
+}
